@@ -3,7 +3,6 @@ class Solution:
     def generateTheString(self, n: int) -> str:
         lst = string.ascii_lowercase
         st1 = random.choice(lst)
-        
         if n == 1:
             return st1
         if n % 2 == 0:
