@@ -14,4 +14,6 @@ class Solution:
             else:
                 stack.append(val)
         
-        return True if not stack else False
+        if len(stack) == 0:
+            return True
+        return False
