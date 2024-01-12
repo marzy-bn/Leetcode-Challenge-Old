@@ -1,20 +1,20 @@
 class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
-        #return sorted(s) == sorted(t)
         if len(s) != len(t):
             return False
         hmap = {}
-        for val in s:
-            if val not in hmap:
-                hmap[val] = 1
+        hmap2 = {}
+        for num in s:
+            if num not in hmap:
+                hmap[num] = 1
             else:
-                hmap[val] += 1
-                
-        for val in t:
-            if val not in hmap:
-                return False
+                hmap[num] += 1
+        
+        for num in t:
+            if num not in hmap2:
+                hmap2[num] = 1
             else:
-                hmap[val] -= 1
-                if hmap[val] == 0:
-                    del hmap[val]
-        return True
+                hmap2[num] += 1
+        
+        return hmap == hmap2
+            
