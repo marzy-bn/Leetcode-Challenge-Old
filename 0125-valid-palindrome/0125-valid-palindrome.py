@@ -1,25 +1,19 @@
 class Solution:
-    
-    def alphaNum(self, char):
-        return (ord('A') <= ord(char) <= ord('Z') or ord('a') <= ord(char) <= ord('z') or ord('0') <= ord(char) <= ord('9'))
-    
     def isPalindrome(self, s: str) -> bool:
         
+        new_s = ''
+        for char in s:
+            if char.isalnum():
+                new_s += char
+        new_s = new_s.lower()
+        print(new_s)
         i = 0
-        j = len(s) - 1
-        while i < j:
-            while i < j and not self.alphaNum(s[i]):
-                i += 1
-            while i < j and not self.alphaNum(s[j]):
-                j -= 1
-            if s[i].lower() != s[j].lower():
+        j = len(new_s)-1
+        while i<(len(new_s)//2):
+            if new_s[i] != new_s[j]:
                 return False
-            i += 1
-            j -= 1
+            i+=1
+            j-=1
         return True
-    
-
-            
                         
-                
                 
