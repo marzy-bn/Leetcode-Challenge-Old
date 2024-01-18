@@ -4,10 +4,9 @@ class Solution:
             return False
         hmap1 = {}
         hmap2 = {}
-        for item in s:
-            hmap1[item] = hmap1.get(item,0) + 1
-        for item in t:
-            hmap2[item] = hmap2.get(item,0) + 1
+        for i in range(len(s)):
+            hmap1[s[i]] = hmap1.get(s[i],0) + 1
+            hmap2[t[i]] = hmap2.get(t[i],0) + 1
         
         return hmap1 == hmap2
             
