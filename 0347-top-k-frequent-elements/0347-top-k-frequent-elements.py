@@ -1,6 +1,7 @@
 class Solution:
     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
         
+        freq = [[] for i in range(len(nums)+1)]
         
         hmap = {}
         for num in nums:
@@ -9,9 +10,12 @@ class Solution:
         
         #[(1,3),(2,2)(3,1)]
         
-        #sorting the dictionary
-        sorted_hmap = sorted(hmap.items(), key= lambda x: x[1], reverse=True)
-        k_lst = []
-        for i in range(k):
-            k_lst.append(sorted_hmap[i][0])
-        return k_lst
+        for key,val in hmap.items():
+            freq[val].append(key)
+        
+        output = []
+        for i in range(len(freq)-1,0,-1):
+            for item in freq[i]:
+                output.append(item)
+                if len(output) == k:
+                    return output
