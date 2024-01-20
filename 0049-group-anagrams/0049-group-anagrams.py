@@ -1,15 +1,14 @@
 from collections import defaultdict
 class Solution:
     def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
-        anagram_dict = defaultdict(list)
+        hmap = defaultdict(List)
         
         for s in strs:
-            count = [0] * 26
-            for c in s:
-                count[ord(c)-ord('a')] += 1
-            key=tuple(count)
-            anagram_dict[key].append(s)
-        
-        return anagram_dict.values()
+            sorted_s = ''.join(sorted(s))
+            if sorted_s not in hmap:
+                hmap[sorted_s] = [s]
+            else:
+                hmap[sorted_s].append(s)
+        return hmap.values()
         
             
